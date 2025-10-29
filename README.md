@@ -5,6 +5,7 @@ This project addresses the challenge of managing highly volatile time-series net
 Predictive Model: LSTM Sequence-to-Sequence for congestion forecasting (Mb/s).
 Inference Model: STL Decomposition combined with Isolation Forest for anomaly identification and classification (DDoS vs. Massive Download).
 Contextual Integration: Quantification of the relationship between network activity and Academic Schedule seasonality.
+
 # Methodology & Technical Stack
 1. Data Source & Preparation
 Data: 5 months of 5-minute interval traffic data (March - May 2025) for two VLANs (Wired + Wireless metrics).
@@ -25,6 +26,7 @@ Classification: Applied Isolation Forest coupled with Rule-Based Inference to cl
 Massive Download: Low Packet-to-Bit Ratio (large packets).
 DDoS/Scan: High Packet-to-Bit Ratio (small packets) + high input imbalance.
 Result: Successfully classified 206 high-risk outliers, distinguishing benign high-volume transfers from complex network anomalies.
+
 # Running the Project
 # Prerequisites
 Python 3.8+
@@ -34,8 +36,11 @@ pip install tensorflow scikit-learn pandas numpy matplotlib openpyxl joblib stat
 
 # File Structure
 VLAN_Traffic_Analysis.ipynb (Jupyter Notebook): Contains the complete end-to-end code for Data Loading, EDA, Feature Engineering, STL Decomposition, Model Training, and Evaluation.
+
 lstm_congestion_model.h5: The saved LSTM model weights and architecture.
+
 scaler.pkl: The saved MinMaxScaler object (critical for preprocessing new data).
+
 # Model Deployment (Example Usage)
 To reload the model and predict traffic for a new 4-hour window, use the deployment script:
 python model_deployment.py
